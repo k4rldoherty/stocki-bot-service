@@ -54,7 +54,7 @@ public class CommandsService(ILogger<CommandsService> logger)
     public static async Task HandleSubscribeAsync(SocketSlashCommand cmd)
     {
         var args = cmd.Data.Options.ToList();
-        if (args is null || args.Count() < 3)
+        if (args is null || args.Count() != 3)
         {
             return;
         }
