@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using StockiBotService.Services;
+using StockiBotService.Services.Api;
 using StockiBotService.Services.Commands;
 using StockiBotService.Services.Input;
 
@@ -17,7 +18,15 @@ builder.ConfigureServices(
         services.AddSingleton<CommandsService>();
         services.AddSingleton<CommandRegistry>();
         services.AddSingleton<InputHandlerService>();
-        services.AddSingleton<HttpClient>();
+        services.AddHttpClient(
+            "OrchestratorClient",
+            client =>
+            {
+                client.BaseAddress = new Uri("http://localhost:5158/api/orchestrator");
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+            }
+        );
+        services.AddScoped<OrchestratorClient>();
     }
 );
 builder.ConfigureLogging(logging => logging.AddConsole());
