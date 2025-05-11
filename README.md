@@ -10,7 +10,7 @@ Key Features
 ## Slash Commands:
 
 - /stock-price <ticker>: Fetch real-time stock prices (e.g., /stock price AAPL).
-- /news <ticker>: Retrieve financial news articles (e.g., /news "AAPL").
+- /news <ticker>: Retrieve financial news articles (e.g., /news AAPL).
 - /subscribe <ticker>: (Future) Set price alerts for stocks (under development).
 - /unsubscribe <ticker>: (Future) Set price alerts for stocks (under development).
 - /chat <query>: (Future) AI-powered market analysis (planned).
@@ -21,10 +21,6 @@ Key Features
 
 - Language: C#
 - Framework: Discord.NET (latest version)
-- APIs Used:
-  -- Alpha Vantage (stock data)
-  -- Finnhub (stock data)
-  -- OpenAI API (planned for /chat feature)
 - Tools:
   -- .NET 6/7 SDK
   -- Docker (optional for deployment)
@@ -39,14 +35,19 @@ Key Features
 
 ## Steps
 
-- Clone the repo:
+### Clone the repo:
+
 - git clone https://github.com/yourusername/stocki.git
-- Install dependencies:
+
+### Install dependencies:
+
 - dotnet restore
-- Configure environment variables:
+
+### Configure environment variables:
+
 - DISCORD_TOKEN=your_discord_bot_token
-- ALPHA_VANTAGE_API_KEY=your_alphavantage_key
-- NEWSAPI_KEY=your_newsapi_key
-- Build and run:
+
+### Build and run:
+
 - dotnet build
 - dotnet run
